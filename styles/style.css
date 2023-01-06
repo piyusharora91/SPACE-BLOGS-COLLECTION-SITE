@@ -41,6 +41,7 @@ body {
 .navigation-items {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .background {
@@ -56,10 +57,26 @@ body {
   color: dodgerblue;
   cursor: pointer;
   user-select: none;
+  margin: 0px;
+  transition: 0.3s all;
+  padding: 5px 10px;
 }
 
 .clickable:hover {
   color: rgb(21, 121, 221);
+  scale: 1.02;
+}
+
+.fa-house {
+  font-size: 30px;
+  background: transparent;
+  position: relative;
+  bottom: 2px;
+  transition: 0.3s all;
+}
+
+.fa-house:hover {
+  scale: 1.055;
 }
 
 /* Images Container */
@@ -107,9 +124,23 @@ body {
   right: 50px;
 }
 
+.add-or-remove-to-favorite-button {
+  width: max-content;
+}
+
 /* Hidden */
 .hidden {
   display: none;
+}
+
+/* Active Background On NavBar */
+.active-background {
+  background: rgb(255, 212, 212);
+  border-radius: 10px;
+}
+
+.active-background:hover {
+  scale: 1;
 }
 
 /* Large Smartphone (Vertical) */

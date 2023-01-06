@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA API Pictures</title>
-    <link rel="stylesheet" href="style.css">
+    <title>NASA API & SPACE & PLANETS - AMAZING PHOTOS</title>
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov">
-    <!-- ZTM Favicon -->
-    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
     <!-- Loader -->
     <div class="loader hidden">
-        <img src="./rocket.svg" alt="Rocket Loading Animation">
+        <img src="./assets/rocket.svg" alt="Rocket Loading Animation">
     </div>
     <!-- Container -->
     <div class="container">
@@ -23,13 +25,11 @@
             <span class="background"></span>
             <!-- Results Nav -->
             <span class="navigation-items" id="resultsNav">
-                <h3 class="clickable">Favorites</h3>
+                <i class="fa-solid fa-house clickable active-background" id="homeNav"></i>
                 <h3>&nbsp;&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;</h3>
-                <h3 class="clickable">Load More</h3>
-            </span>
-            <!-- Favirotes Nav -->
-            <span class="navigation-items hidden" id="favoritesNav">
-                <h3 class="clickable">Load More Nasa Images</h3>
+                <h3 class="clickable" id="favoritesNav">Favorites</h3>
+                <h3>&nbsp;&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;</h3>
+                <h3 class="clickable" id="loadNewNav">Load New</h3>
             </span>
         </div>
 
@@ -39,10 +39,10 @@
 
     <!-- Save Confirmation -->
     <div class="save-confirmed" hidden>
-        <h1>ADDED!</h1>
+        <h1 id="save-confirmed-label"></h1>
     </div>
     <!-- Script -->
-    <script src="script.js"></script>
+    <script src="./scripts/script.js" type="module"></script>
 </body>
 
 </html>
