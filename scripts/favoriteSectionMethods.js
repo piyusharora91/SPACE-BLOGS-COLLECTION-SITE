@@ -1,5 +1,3 @@
-import returnElementId from "./returnElementId.js";
-
 const showDialogMessage = (status) => {
     const saveConfirmed = document.querySelector('.save-confirmed');
     const saveConfirmedLabel = document.querySelector('#save-confirmed-label');
@@ -11,7 +9,6 @@ const showDialogMessage = (status) => {
     } else {
         saveConfirmedLabel.textContent = 'ALREADY ADDED!';
     }
-
     saveConfirmed.hidden = false;
     // Show save confirmed for 2 seconds
     setTimeout(() => { saveConfirmed.hidden = true; }, 2000);
