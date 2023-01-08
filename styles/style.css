@@ -18,6 +18,8 @@ body {
   align-items: center;
   margin-top: 5px;
   margin-bottom: 25px;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Loader */
@@ -36,6 +38,8 @@ body {
 .navigation-container {
   position: fixed;
   top: 0;
+  min-height: max-content;
+  height: 8%;
 }
 
 .navigation-items {
@@ -81,16 +85,23 @@ body {
 
 /* Images Container */
 .images-container {
-  width: 800px;
+  width: 98vw;
+  height: 90vh;
   margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card {
   background: white;
-  margin: 10px 10px 20px;
+  margin: 10px 10px 20px 10px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  height: 48%;
+  width: 48%;
+  overflow-y: auto;
 }
 
 .card:hover {
@@ -98,13 +109,13 @@ body {
 }
 
 .card-img-top {
-  width: 100%;
+  width: 100px;
   height: auto;
   border-radius: 5px 5px 0px 0px;
 }
 
 .card-body {
-  padding: 20px;
+  padding: 10px;
 }
 
 .card-title {

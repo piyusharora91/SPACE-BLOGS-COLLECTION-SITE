@@ -37,11 +37,11 @@ const saveFavorite = (itemObject, itemUrl) => {
     }
 }
 
-// Add item from favorites in localStorage
-const removeFavorite = (itemUrl) => {
+const removeFavorite = (e) => {
+    const itemUrl = e.path[2].children[0].children[0].src;  // gets card image src from where button is clicked
     const favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (favorites.hasOwnProperty(itemUrl)) {
-        const elementToRemove = document.getElementById(returnElementId(favorites[itemUrl].title));
+    if (favorites.hasOwnProperty(`${itemUrl}`)) {
+        const elementToRemove = e.path[2];
         delete favorites[itemUrl];
         elementToRemove.remove();
         localStorage.setItem('favorites', JSON.stringify(favorites));

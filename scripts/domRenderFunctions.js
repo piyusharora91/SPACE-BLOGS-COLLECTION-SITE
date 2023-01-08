@@ -7,6 +7,14 @@ const activateNav = (keyword) => {
     });
 }
 
+const scrolTop = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+    });
+}
+
 const updateDom = (toPosition, targetList, imagesContainer) => {
     if (toPosition === 'HOME') {
         targetList.forEach((result) => {
@@ -29,6 +37,7 @@ const showFavoritesSection = (toPosition, targetList, imagesContainer) => {
         });
         imagesContainer.classList.add('favorites-shown');
         activateNav('favorites');
+        scrolTop();
         updateDom(toPosition, targetList, imagesContainer);
     }
     else
@@ -42,6 +51,7 @@ const showResultsSection = (toPosition, targetList, imagesContainer) => {
         });
         imagesContainer.classList.remove('favorites-shown');
         activateNav('home');
+        scrolTop();
         updateDom(toPosition, targetList, imagesContainer);
     }
 }

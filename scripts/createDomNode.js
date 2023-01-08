@@ -36,7 +36,7 @@ const createDomNodes = (item, page) => {
         saveText.addEventListener('click', () => saveFavorite(item, item.url));
     } else {
         saveText.textContent = 'Remove Favorite';
-        saveText.addEventListener('click', () => removeFavorite(item.url));
+        saveText.addEventListener('click', (e) => removeFavorite(e));
     }
     // Card Text
     const cardText = document.createElement('p');

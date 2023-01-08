@@ -3,7 +3,7 @@ const returnElementId = (input) => {
     const regexConditional = /^[A-Za-z0-9 ]+$/g;
     input.split(' ').forEach((inputPart) => {
         if (inputPart.match(regexConditional)) {
-            idKeywords.push(inputPart);
+            idKeywords.push(inputPart.toLowerCase());
         }
     });
     return idKeywords.join('-');
