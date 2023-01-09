@@ -9,7 +9,7 @@ const activateNav = (keyword) => {
 
 const scrolTop = () => {
     window.scrollTo({
-        top: 0,
+        top: -100,
         left: 0,
         behavior: 'instant'
     });
@@ -33,7 +33,7 @@ const showFavoritesSection = (toPosition, targetList, imagesContainer) => {
     const savedItems = JSON.parse(localStorage.getItem('favorites'));
     if (savedItems && Object.keys(savedItems).length !== 0) {
         document.querySelectorAll('.results-section').forEach((resultNode) => {
-            resultNode.hidden = true;
+            resultNode.style.display = "none";
         });
         imagesContainer.classList.add('favorites-shown');
         activateNav('favorites');
@@ -44,10 +44,10 @@ const showFavoritesSection = (toPosition, targetList, imagesContainer) => {
         alert("Your Favorites Section is Either Empty or we've Run into Error.\nPlease TRY again!");
 }
 
-const showResultsSection = (toPosition, targetList, imagesContainer) => {
-    if (imagesContainer.classList.contains('favorites-shown')) {
-        document.querySelectorAll('.favorites-section').forEach((resultNode) => {
-            resultNode.hidden = true;
+const showResultsSection = (toPosition, targetList, imagesContainer, status = null) => {
+    if (imagesContainer.classList.contains('favorites-shown') || status != null) {
+        document.querySelectorAll('.card').forEach((resultNode) => {
+            resultNode.style.display = "none";
         });
         imagesContainer.classList.remove('favorites-shown');
         activateNav('home');

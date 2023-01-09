@@ -15,14 +15,15 @@ let resultsArray = [];
 let favorites = {};
 
 // Get 20 results from NASA API
-const getNasaPictures = async () => {
+const getNasaPictures = async (loadStatus) => {
     try {
         loader.classList.remove('hidden');
         const response = await fetch(apiUrl);
         resultsArray = await response.json();
         localStorage.setItem('loadedImages', JSON.stringify(resultsArray));
-        updateDom('HOME', resultsArray, imagesContainer);
         loader.classList.add('hidden');
+        (loadStatus === 'INITIAL_LOAD') ? updateDom('HOME', resultsArray, imagesContainer) :
+            showResultsSection('HOME', resultsArray, imagesContainer, 'render_again');
     } catch (e) {
         // catch Errors here
         console.log('errors: ', e.message);
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsArray = JSON.parse(localStorage.getItem('loadedImages'));
         updateDom('HOME', resultsArray, imagesContainer);
     } else {
-        getNasaPictures();
+        getNasaPictures('INITIAL_LOAD');
     }
 
     homeNav.addEventListener('click', () => showResultsSection('HOME', resultsArray, imagesContainer));
@@ -43,8 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         favorites = JSON.parse(localStorage.getItem('favorites'));
         showFavoritesSection('FAVORITES', favorites, imagesContainer)
     });
-    loadNewNav.addEventListener('click', () => {
-        document.querySelectorAll('.results-section').forEach(card => card.remove());
-        getNasaPictures();
+    loadNewNav.addEventListener('click', async () => {
+        getNasaPictures('NEW_LOAD');
     });
 });

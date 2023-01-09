@@ -24,10 +24,6 @@ const createDomNodes = (item, page) => {
     // Card Body
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
-    // Card Title
-    const cardTitle = document.createElement('h5');
-    cardTitle.classList.add('card-title');
-    cardTitle.textContent = item.title;
     // Card Clickable Link
     const saveText = document.createElement('p');
     saveText.classList.add('clickable', 'add-or-remove-to-favorite-button');
@@ -38,6 +34,10 @@ const createDomNodes = (item, page) => {
         saveText.textContent = 'Remove Favorite';
         saveText.addEventListener('click', (e) => removeFavorite(e));
     }
+    // Card Title
+    const cardTitle = document.createElement('h5');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = item.title;
     // Card Text
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
@@ -56,7 +56,7 @@ const createDomNodes = (item, page) => {
 
     // Append
     mutedTextContainer.append(date, holderInfo);
-    cardBody.append(cardTitle, saveText, cardText, mutedTextContainer);
+    cardBody.append(saveText, cardTitle, cardText, mutedTextContainer);
     link.appendChild(image);
     card.append(link, cardBody);
 
