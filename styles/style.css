@@ -171,15 +171,13 @@ iframe {
 .card-text {
   font-family: 'Merriweather', serif;
   font-size: 0.9rem;
-  width: 90%;
+  width: 85%;
   height: 92%;
   background: rgb(227, 241, 255);
   color: #000000;
   border: 1px solid black;
   padding: 3px 14px;
   border-radius: 5px;
-  position: relative;
-  right: 2px;
   margin: 2px auto 0px auto;
   overflow-x: hidden;
   overflow-y: auto;
