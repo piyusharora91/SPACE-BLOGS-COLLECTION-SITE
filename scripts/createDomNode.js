@@ -14,12 +14,17 @@ const createDomNodes = (item, page) => {
     link.href = item.hdurl;
     link.title = 'View Full image';
     link.target = '_blank';
-    //Image
-    const image = document.createElement('img');
-    image.src = item.url;
-    image.alt = 'NASA picture of the Day!';
-    image.loading = 'lazy';
-    image.classList.add('card-img-top');
+    //create Image/video element
+    let mediaElement = '';
+    if (item.media_type === 'video') {
+        mediaElement = document.createElement('iframe');
+    } else {
+        mediaElement = document.createElement('img');
+    }
+    mediaElement.src = item.url;
+    mediaElement.alt = 'NASA picture of the Day!';
+    mediaElement.loading = 'lazy';
+    mediaElement.classList.add('card-img-top');
 
     // Card Body
     const cardBody = document.createElement('div');
@@ -57,7 +62,7 @@ const createDomNodes = (item, page) => {
     // Append
     mutedTextContainer.append(date, holderInfo);
     cardBody.append(saveText, cardTitle, cardText, mutedTextContainer);
-    link.appendChild(image);
+    link.appendChild(mediaElement);
     card.append(link, cardBody);
 
     return card;
