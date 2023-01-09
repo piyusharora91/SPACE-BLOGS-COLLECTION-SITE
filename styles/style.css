@@ -149,6 +149,9 @@ iframe {
   padding: 0;
   font-size: 0.8rem;
   font-family: 'Merriweather', serif;
+  grid-area: save-button;
+  justify-self: center;
+  align-self: center;
 }
 
 .card-title {
@@ -173,7 +176,7 @@ iframe {
   background: rgb(227, 241, 255);
   color: #000000;
   border: 1px solid black;
-  padding: 3px;
+  padding: 3px 14px;
   border-radius: 5px;
   position: relative;
   right: 2px;
