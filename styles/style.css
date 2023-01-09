@@ -12,7 +12,6 @@ body {
   padding: 0;
   background: whitesmoke;
   overflow-x: hidden;
-  font-family: Verdana, sans-serif;
   font-size: 1rem;
   line-height: 1.8rem;
   overflow: hidden;
@@ -68,6 +67,10 @@ body {
   top: 1px;
 }
 
+.navigation-items .clickable {
+  font-size: 1.6rem;
+}
+
 .clickable:hover {
   color: rgb(21, 121, 221);
   scale: 1.02;
@@ -75,7 +78,7 @@ body {
 
 .fa-house {
   top: 0px;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   background: transparent;
   position: relative;
   bottom: 2px;
@@ -88,7 +91,7 @@ body {
 
 /* Images Container */
 .images-container {
-  padding-bottom: 10px;
+  padding-bottom: 40px;
   width: 98vw;
   height: 97vh;
   margin-top: 0px;
@@ -155,7 +158,8 @@ iframe {
   margin: 5px auto;
   font-size: 1.5rem;
   width: 100%;
-  height: 3.5rem;
+  min-height: 3.5rem;
+  height: max-content;
   text-align: center;
   font-family: 'Concert One', cursive;
   grid-area: title;
@@ -210,6 +214,45 @@ iframe {
   grid-area: save-button;
 }
 
+#title-header {
+  z-index: 3;
+  position: absolute;
+  bottom: 0vh;
+  left: 50%;
+  translate: -50% 0vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 55vw;
+  min-height: 14vh;
+  background: rgb(255, 212, 212);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  transition: 0.5s all ease-in;
+}
+
+#site-title {
+  color: dodgerblue;
+  margin: 0;
+  width: 60%;
+  text-align: center;
+  word-break: break-all;
+  font-family: 'Concert One', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+#header-animation-button {
+  color: dodgerblue;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+#header-animation-button:hover {
+  scale: 1.1;
+}
+
 /* Hidden */
 .hidden {
   display: none;
@@ -223,6 +266,15 @@ iframe {
 
 .active-background:hover {
   scale: 1;
+}
+
+/* Header Animations */
+.toggle-header-animation {
+  transform: translateY(60%);
+}
+
+.rotate-button {
+  transform: rotate(180deg);
 }
 
 /* Tablets */
@@ -253,6 +305,10 @@ iframe {
     justify-self: end;
     align-self: center;
     margin-right: 0.5rem;
+  }
+
+  #title-header {
+    width: 80vw;
   }
 }
 
@@ -301,6 +357,16 @@ iframe {
     margin-top: 12px;
     margin-bottom: 12px;
   }
+
+  #title-header {
+    width: 95vw;
+    position: absolute;
+    bottom: 0vh;
+  }
+
+  #site-title {
+    word-break: normal;
+  }
 }
 
 /* landscape view */
@@ -311,5 +377,11 @@ iframe {
 
   .card {
     height: 90%;
+  }
+
+  #title-header {
+    /* left: initial; */
+    right: 0%;
+    translate: initial;
   }
 }

@@ -1,10 +1,12 @@
 import { updateDom, showFavoritesSection, showResultsSection } from "./domRenderFunctions.js";
+import toggleHeader from "./headerAnimation.js";
 
 const favoritesNav = document.getElementById('favoritesNav');
 const homeNav = document.getElementById('homeNav');
 const loadNewNav = document.getElementById('loadNewNav');
 const imagesContainer = document.querySelector('.images-container');
 const loader = document.querySelector('.loader');
+const headerAnimationButton = document.getElementById('header-animation-button');
 
 // NASA API 
 const count = 20;
@@ -47,4 +49,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadNewNav.addEventListener('click', async () => {
         getNasaPictures('NEW_LOAD');
     });
+    headerAnimationButton.addEventListener('click', (e) => toggleHeader(e));
 });
