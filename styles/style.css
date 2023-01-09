@@ -23,7 +23,7 @@ body {
   margin-top: 5px;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Loader */
@@ -42,9 +42,11 @@ body {
 .navigation-container {
   position: fixed;
   top: 0;
-  min-height: max-content;
-  height: 8%;
+  height: max-content;
   width: 100%;
+  margin-bottom: 1px;
+  background: whitesmoke;
+  z-index: 3;
 }
 
 .navigation-items {
@@ -53,16 +55,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   width: 60%;
-  z-index: 3;
-}
-
-.background {
-  background: whitesmoke;
-  position: fixed;
-  right: 0;
-  width: 100%;
-  height: 60px;
-  z-index: -1;
 }
 
 .clickable {
@@ -97,14 +89,13 @@ body {
 
 /* Images Container */
 .images-container {
+  padding-top: 4%;
   width: 98vw;
   height: 95vh;
-  margin-top: 50px;
-  padding-top: 10px;
+  margin-top: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  overflow: auto;
 }
 
 .card {
@@ -116,7 +107,7 @@ body {
   height: 48%;
   width: 46%;
   display: flex;
-  flex-wrap: wrap;
+  z-index: 0;
 }
 
 .card:hover {
@@ -142,6 +133,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 0;
 }
 
 .add-or-remove-to-favorite-button {
@@ -153,16 +145,18 @@ body {
   position: relative;
   top: -7px;
   left: 7px;
+  z-index: 0;
 }
 
 .card-title {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   width: 100%;
   text-align: center;
   font-family: 'Concert One', cursive;
   position: relative;
   top: -10px;
+  z-index: 0;
 }
 
 .card-text {
@@ -225,10 +219,8 @@ body {
   scale: 1;
 }
 
-@media screen and (max-width:1100px) {}
-
-/* Large Smartphone (Vertical) */
-@media screen and (max-width: 550px) {
+/* Tablets */
+@media screen and (max-width: 900px) {
   body {
     line-height: 1.4rem;
     font-size: 0.9rem;
@@ -238,7 +230,6 @@ body {
   .navigation-items {
     width: 100%;
   }
-
 
   .clickable {
     font-size: 1.15rem;
@@ -263,5 +254,88 @@ body {
   .save-confirmed {
     right: 25px;
   }
+}
 
+/* Vertical Screens(SmartPhones) */
+@media screen and (max-width: 550px) {
+  .images-container {
+    position: relative;
+    top: 30px;
+    border: 2px solid black;
+  }
+
+  .card {
+    height: max-content;
+    flex-direction: column;
+  }
+
+  .card:last-child {
+    margin-bottom: 30px;
+  }
+
+  .card a {
+    width: 90%;
+    margin: 5px auto 0px auto;
+  }
+
+  .card-img-top {
+    border-radius: 5px;
+  }
+
+  iframe {
+    height: 500px;
+  }
+
+  .card-body {
+    display: grid;
+    width: 98%;
+    height: max-content;
+    padding: 0px;
+    margin: 15px auto;
+    grid-template-columns: repeat(2, 40%);
+    grid-template-areas:
+      "title title"
+      "para para"
+      "text-muted save-button";
+  }
+
+  .card-title {
+    font-size: 2rem;
+    grid-area: title;
+  }
+
+  .card-text {
+    top: initial;
+    width: 80%;
+    height: 120px;
+    margin: 0px auto;
+    grid-area: para;
+    padding: 5px 15px;
+  }
+
+  .text-muted {
+    grid-area: text-muted;
+    margin-left: 10px;
+  }
+
+  .text-muted span {
+    word-break: break-all;
+  }
+
+  .add-or-remove-to-favorite-button {
+    top: 5px;
+    font-size: 0.9rem;
+    grid-area: save-button;
+  }
+}
+
+/* landscape view */
+@media screen and (max-height: 450px) {
+  html {
+    font-size: 12px;
+  }
+
+  .card {
+    height: 90%;
+  }
 }
