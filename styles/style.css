@@ -171,12 +171,13 @@ iframe {
 .card-text {
   font-family: 'Merriweather', serif;
   font-size: 0.9rem;
-  width: 85%;
+  width: 78%;
+  min-height: 220px;
   height: 92%;
   background: rgb(227, 241, 255);
   color: #000000;
   border: 1px solid black;
-  padding: 3px 14px;
+  padding: 3px 20px;
   border-radius: 5px;
   margin: 2px auto 0px auto;
   overflow-x: hidden;
@@ -188,18 +189,20 @@ iframe {
 .text-muted {
   grid-area: text-muted;
   margin-left: 10px;
+  font-family: 'Merriweather', serif;
 }
 
 .text-muted strong {
-  font-family: 'Concert One', cursive;
   font-size: 1.1rem;
+  font-weight: 100;
 }
 
 .text-muted span {
-  font-family: 'Concert One', cursive;
   font-size: 0.9rem;
   text-align: center;
   width: fit-content;
+  margin-left: 10px;
+  text-align-last: center;
 }
 
 /* Save Confirmation */
@@ -281,7 +284,6 @@ iframe {
 /* Tablets */
 @media screen and (max-width: 1050px) {
   body {
-    /* line-height: 1.4rem; */
     font-size: 0.9rem;
   }
 
@@ -381,7 +383,6 @@ iframe {
   }
 
   #title-header {
-    /* left: initial; */
     right: 0%;
     translate: initial;
   }
