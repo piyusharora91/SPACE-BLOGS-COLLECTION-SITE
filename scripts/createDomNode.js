@@ -18,10 +18,14 @@ const createDomNodes = (item, page) => {
     let mediaElement = '';
     if (item.media_type === 'video') {
         mediaElement = document.createElement('iframe');
+        mediaElement.src = item.url;
     } else {
-        mediaElement = document.createElement('img');
+        mediaElement = document.createElement('div');
+        mediaElement.style.backgroundImage = `url(${item.url})`;
+        mediaElement.style.backgroundSize = 'cover';
+        mediaElement.style.backgroundRepeat = 'no-repeat';
+        mediaElement.style.backgroundPosition = 'center';
     }
-    mediaElement.src = item.url;
     mediaElement.alt = 'NASA picture of the Day!';
     mediaElement.loading = 'lazy';
     mediaElement.classList.add('card-img-top');
