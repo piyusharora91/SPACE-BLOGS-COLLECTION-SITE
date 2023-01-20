@@ -35,10 +35,10 @@ const saveFavorite = (itemObject, itemUrl) => {
 }
 
 const removeFavorite = (e) => {
-    const itemUrl = e.path[2].children[0].children[0].src;  // gets card image src from where button is clicked
+    const itemUrl = e.target.parentElement.previousSibling.children[0].style.backgroundImage.split("\"")[1];  // gets card image src from where button is clicked
     const favorites = JSON.parse(localStorage.getItem('favorites'));
     if (favorites.hasOwnProperty(`${itemUrl}`)) {
-        const elementToRemove = e.path[2];
+        const elementToRemove = e.target.parentElement.parentElement;
         delete favorites[itemUrl];
         elementToRemove.remove();
         localStorage.setItem('favorites', JSON.stringify(favorites));
